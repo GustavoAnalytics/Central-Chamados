@@ -951,7 +951,7 @@ textarea{min-height:112px;resize:vertical}
     <div class="section-heading">
       <div>
         <span class="section-kicker">Atendimento técnico</span>
-        <h2>Área do responsável pelo chamado • V2.1</h2>
+        <h2>Área do responsável pelo chamado • V2.3</h2>
       </div>
       <p>
         Ambiente interno para assumir o atendimento, registrar análise, orientar o usuário,
@@ -1198,6 +1198,7 @@ const RESPONSIBLE_DRAFT_KEY = "mngt_helpdesk_responsible_draft_v1";
 
 const METRICS_CACHE_KEY = "mngt_helpdesk_analytics_cache_v22";
 const METRICS_CACHE_MAX_AGE = 6 * 60 * 60 * 1000;
+const METRICS_MIN_REFRESH_INTERVAL = 60 * 1000;
 const HISTORY_RETENTION_DAYS = 365;
 
 
@@ -1560,7 +1561,7 @@ form.addEventListener("submit",async event=>{
       confirmation?.found?"Chamado registrado":"Chamado encaminhado",
       `Protocolo: ${protocol}. A confirmação foi enviada por e-mail.`
     );
-    loadMetrics();
+    loadMetrics(true);
   }catch(error){
     saveDraft();
     showToast("Falha no envio",error?.message||"Não foi possível registrar o chamado.");
@@ -1826,14 +1827,23 @@ async function loadMetrics(force=false){
   if(!backendConfigured()||!navigator.onLine)return;
   if(!force&&cached){
     const age=Date.now()-new Date(cached.savedAt).getTime();
-    if(age<METRICS_CACHE_MAX_AGE)return;
+
+    /*
+     * O cache aparece imediatamente, mas não bloqueia a sincronização por horas.
+     * Apenas evita duas consultas em menos de um minuto.
+     */
+    if(age<METRICS_MIN_REFRESH_INTERVAL)return;
   }
 
   refreshMetricsBtn.disabled=true;
   refreshMetricsBtn.textContent="Atualizando...";
 
   try{
-    const data=await jsonp({action:"analytics",days:"365"},15000);
+    const data=await jsonp({
+      action:"analytics",
+      days:"365",
+      refresh:force?"1":"0"
+    },15000);
     if(!data?.ok)throw new Error(data?.error||"Indicadores indisponíveis.");
 
     saveAnalyticsCache(data);
@@ -2168,6 +2178,7 @@ responsibleForm.addEventListener("submit",async event=>{
     responsibleFileList.innerHTML="";
     await new Promise(resolve=>setTimeout(resolve,900));
     await loadResponsibleTicket();
+    await loadMetrics(true);
 
     showToast(
       confirmation?.found?"Resposta registrada":"Resposta encaminhada",
