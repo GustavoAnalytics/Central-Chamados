@@ -318,6 +318,128 @@ textarea{min-height:112px;resize:vertical}
   .console-flow{grid-template-columns:repeat(2,1fr)}
   .ticket-grid{grid-template-columns:1fr}
 }
+
+/* =========================================================
+   ÁREA DO RESPONSÁVEL PELO CHAMADO
+   ========================================================= */
+.responsible-section{scroll-margin-top:92px}
+.responsible-hero{
+  position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,.76fr) minmax(0,1.24fr);
+  gap:22px;padding:23px;border:1px solid var(--line);border-radius:28px;
+  background:
+    radial-gradient(circle at 5% 5%,rgba(139,124,255,.13),transparent 31%),
+    radial-gradient(circle at 98% 12%,rgba(72,220,228,.10),transparent 31%),
+    linear-gradient(145deg,#161821,#0d0f15);
+  box-shadow:0 28px 75px rgba(0,0,0,.34)
+}
+.responsible-access{padding:25px;border:1px solid var(--line);border-radius:22px;background:rgba(4,6,10,.57)}
+.responsible-access h3{font-size:24px}
+.responsible-access>p{margin-top:9px;color:var(--muted);font-size:10px;line-height:1.65}
+.responsible-lock{
+  width:52px;height:52px;display:grid;place-items:center;margin-bottom:19px;border-radius:15px;
+  color:#111;background:linear-gradient(135deg,var(--purple),#fff);font-size:22px;font-weight:1000
+}
+.responsible-security{
+  margin-top:17px;padding:13px;border:1px solid rgba(139,124,255,.20);border-radius:13px;
+  color:#c9c2ff;background:rgba(139,124,255,.055);font-size:9px;line-height:1.55
+}
+.responsible-workspace{min-width:0;padding:25px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.025)}
+.responsible-empty{
+  min-height:390px;display:grid;place-items:center;text-align:center;color:var(--muted)
+}
+.responsible-empty span{
+  width:76px;height:76px;display:grid;place-items:center;margin:0 auto 16px;border:1px solid var(--line);
+  border-radius:23px;background:rgba(255,255,255,.035);font-size:29px
+}
+.responsible-empty h3{color:#fff;font-size:20px}
+.responsible-empty p{max-width:440px;margin:9px auto 0;font-size:10px;line-height:1.6}
+.responsible-content{display:none}
+.responsible-content.show{display:block}
+.responsible-ticket-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding-bottom:18px;border-bottom:1px solid var(--line)
+}
+.responsible-ticket-head h3{font-size:22px}
+.responsible-ticket-head p{margin-top:6px;color:var(--muted);font-size:9px}
+.responsible-ticket-status{
+  padding:8px 10px;border:1px solid rgba(72,220,228,.22);border-radius:999px;
+  color:#a5f3fc;background:rgba(72,220,228,.07);font-size:8px;font-weight:950;text-transform:uppercase
+}
+.responsible-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:17px}
+.responsible-summary-item{padding:12px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.025)}
+.responsible-summary-item b{display:block;color:var(--muted-2);font-size:8px;text-transform:uppercase;letter-spacing:.06em}
+.responsible-summary-item span{display:block;margin-top:6px;font-size:10px;line-height:1.4;word-break:break-word}
+.responsible-description{
+  margin-top:13px;padding:14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)
+}
+.responsible-description b{display:block;font-size:10px}
+.responsible-description p{margin-top:7px;color:var(--muted);font-size:10px;line-height:1.62;white-space:pre-wrap}
+.responsible-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:19px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.responsible-tab{
+  padding:9px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted);
+  background:rgba(255,255,255,.025);cursor:pointer;font-size:9px;font-weight:900
+}
+.responsible-tab.active{color:#111;border-color:var(--cyan);background:var(--cyan)}
+.responsible-pane{display:none;padding-top:19px}
+.responsible-pane.active{display:block}
+.responsible-form-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:13px}
+.upload-box{
+  position:relative;padding:18px;border:1px dashed rgba(72,220,228,.28);border-radius:15px;
+  background:rgba(72,220,228,.035);text-align:center
+}
+.upload-box input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.upload-box b{display:block;font-size:11px}
+.upload-box span{display:block;margin-top:6px;color:var(--muted);font-size:9px}
+.file-list{display:grid;gap:7px;margin-top:10px}
+.file-item{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 11px;
+  border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025);font-size:9px
+}
+.file-item span:last-child{color:var(--muted-2)}
+.internal-note{
+  padding:13px;border:1px solid rgba(251,191,36,.18);border-radius:13px;
+  color:#fde68a;background:rgba(251,191,36,.045);font-size:9px;line-height:1.55
+}
+.responsible-actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:17px;border-top:1px solid var(--line)}
+.timeline{display:grid;gap:13px}
+.timeline-item{position:relative;padding-left:31px}
+.timeline-item::before{
+  content:"";position:absolute;left:8px;top:8px;bottom:-21px;width:1px;background:var(--line)
+}
+.timeline-item:last-child::before{display:none}
+.timeline-dot{
+  position:absolute;left:0;top:4px;width:17px;height:17px;border:4px solid #111319;border-radius:50%;background:var(--cyan)
+}
+.timeline-card{padding:15px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025)}
+.timeline-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
+.timeline-head strong{font-size:11px}
+.timeline-head span{color:var(--muted-2);font-size:8px}
+.timeline-meta{margin-top:5px;color:var(--muted-2);font-size:8px}
+.timeline-content{margin-top:11px;color:var(--muted);font-size:10px;line-height:1.62;white-space:pre-wrap}
+.timeline-block{margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.02)}
+.timeline-block b{display:block;font-size:9px}
+.timeline-block p{margin-top:6px;color:var(--muted);font-size:9px;line-height:1.58;white-space:pre-wrap}
+.timeline-links{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.timeline-links a{
+  padding:7px 9px;border:1px solid rgba(72,220,228,.22);border-radius:9px;color:#a5f3fc;
+  background:rgba(72,220,228,.05);font-size:8px;font-weight:900
+}
+.resolution-box{
+  margin-top:14px;padding:15px;border:1px solid rgba(52,211,153,.20);border-radius:14px;
+  background:rgba(52,211,153,.045)
+}
+.resolution-box h5{color:#a7f3d0;font-size:11px}
+.resolution-box p{margin-top:7px;color:var(--muted);font-size:10px;line-height:1.62;white-space:pre-wrap}
+@media(max-width:1120px){
+  .responsible-hero{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .responsible-summary{grid-template-columns:repeat(2,1fr)}
+  .responsible-form-grid .c8,.responsible-form-grid .c6,.responsible-form-grid .c4,.responsible-form-grid .c3{grid-column:span 12}
+}
+@media(max-width:480px){
+  .responsible-summary{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 
@@ -335,6 +457,7 @@ textarea{min-height:112px;resize:vertical}
       <a href="#servicos">Solicitações</a>
       <a href="#painel">Indicadores</a>
       <a href="#abrir">Abrir chamado</a>
+      <a href="#responsavel">Área do responsável</a>
       <a href="#consultar">Consultar</a>
       <a class="nav-primary" href="#abrir">Novo chamado</a>
     </nav>
@@ -642,6 +765,196 @@ textarea{min-height:112px;resize:vertical}
     </div>
   </section>
 
+
+  <section class="shell section responsible-section" id="responsavel">
+    <div class="section-heading">
+      <div>
+        <span class="section-kicker">Atendimento técnico</span>
+        <h2>Área do responsável pelo chamado</h2>
+      </div>
+      <p>
+        Ambiente interno para assumir o atendimento, registrar análise, orientar o usuário,
+        anexar evidências da solução e documentar o passo a passo executado.
+      </p>
+    </div>
+
+    <div class="responsible-hero">
+      <aside class="responsible-access">
+        <span class="responsible-lock">⌁</span>
+        <h3>Acesso da equipe responsável</h3>
+        <p>
+          Informe o protocolo, seu e-mail corporativo e a chave interna definida no Apps Script.
+          A chave não fica armazenada no navegador.
+        </p>
+
+        <div style="margin-top:20px">
+          <label>Protocolo do chamado *</label>
+          <input id="responsibleProtocol" placeholder="CHM-20260712-123456">
+        </div>
+        <div style="margin-top:13px">
+          <label>E-mail do responsável *</label>
+          <input id="responsibleEmail" type="email" placeholder="nome@areaincrivel.com.br">
+        </div>
+        <div style="margin-top:13px">
+          <label>Chave de acesso da equipe *</label>
+          <input id="responsibleKey" type="password" autocomplete="off" placeholder="Chave interna">
+        </div>
+        <button class="button button-primary" id="responsibleLoadBtn" type="button" style="width:100%;margin-top:16px">
+          Acessar chamado
+        </button>
+
+        <div class="responsible-security">
+          A autenticação é validada no servidor. Mantenha a chave apenas com os responsáveis autorizados.
+        </div>
+      </aside>
+
+      <div class="responsible-workspace">
+        <div class="responsible-empty" id="responsibleEmpty">
+          <div>
+            <span>✓</span>
+            <h3>Atendimento documentado</h3>
+            <p>
+              Após autenticar, o responsável verá os dados do chamado e poderá registrar
+              resposta, passo a passo, causa, solução, tempo gasto e evidências.
+            </p>
+          </div>
+        </div>
+
+        <div class="responsible-content" id="responsibleContent">
+          <div class="responsible-ticket-head">
+            <div>
+              <h3 id="responsibleTicketTitle">Chamado</h3>
+              <p id="responsibleTicketSubtitle"></p>
+            </div>
+            <span class="responsible-ticket-status" id="responsibleTicketStatus"></span>
+          </div>
+
+          <div class="responsible-summary" id="responsibleSummary"></div>
+          <div class="responsible-description">
+            <b>Descrição informada pelo solicitante</b>
+            <p id="responsibleDescription"></p>
+          </div>
+
+          <div class="responsible-tabs">
+            <button class="responsible-tab active" data-responsible-tab="response" type="button">Registrar atendimento</button>
+            <button class="responsible-tab" data-responsible-tab="timeline" type="button">Histórico e interações</button>
+          </div>
+
+          <div class="responsible-pane active" data-responsible-pane="response">
+            <form id="responsibleForm">
+              <div class="responsible-form-grid">
+                <div class="c4">
+                  <label>Nome do responsável *</label>
+                  <input name="responderNome" required>
+                </div>
+                <div class="c4">
+                  <label>Tipo de atualização *</label>
+                  <select name="tipoInteracao" required>
+                    <option value="">Selecione...</option>
+                    <option>Início do atendimento</option>
+                    <option>Atualização de andamento</option>
+                    <option>Solicitação de informação</option>
+                    <option>Orientação ao usuário</option>
+                    <option>Solução aplicada</option>
+                    <option>Encerramento</option>
+                  </select>
+                </div>
+                <div class="c4">
+                  <label>Novo status *</label>
+                  <select name="novoStatus" required>
+                    <option value="">Selecione...</option>
+                    <option>Em triagem</option>
+                    <option>Em atendimento</option>
+                    <option>Aguardando usuário</option>
+                    <option>Aguardando fornecedor</option>
+                    <option>Resolvido - aguardando validação</option>
+                    <option>Resolvido</option>
+                    <option>Encerrado</option>
+                    <option>Cancelado</option>
+                  </select>
+                </div>
+
+                <div class="c12">
+                  <label>Resposta ao solicitante *</label>
+                  <textarea name="respostaPublica" required placeholder="Explique o que foi analisado, realizado ou o que precisa ser informado pelo solicitante."></textarea>
+                </div>
+
+                <div class="c12">
+                  <label>Passo a passo para resolver ou acessar</label>
+                  <textarea name="passoAPasso" placeholder="1. Acesse...&#10;2. Pesquise por...&#10;3. Selecione...&#10;4. Confirme..."></textarea>
+                </div>
+
+                <div class="c6">
+                  <label>Causa identificada</label>
+                  <textarea name="causaRaiz" placeholder="Explique a origem do problema ou necessidade."></textarea>
+                </div>
+                <div class="c6">
+                  <label>Ações realizadas</label>
+                  <textarea name="acoesRealizadas" placeholder="Parametrizações, testes, liberações, correções ou orientações executadas."></textarea>
+                </div>
+
+                <div class="c6">
+                  <label>Ação preventiva / recomendação</label>
+                  <textarea name="acaoPreventiva" placeholder="Como evitar recorrência ou qual procedimento deverá ser seguido."></textarea>
+                </div>
+                <div class="c6">
+                  <label>Observação interna</label>
+                  <textarea name="observacaoInterna" placeholder="Informação visível somente para a equipe responsável."></textarea>
+                </div>
+
+                <div class="c3">
+                  <label>Tempo gasto (minutos)</label>
+                  <input name="tempoGastoMinutos" type="number" min="0" step="5">
+                </div>
+                <div class="c3">
+                  <label>Link de evidência</label>
+                  <input name="evidenciaLink" placeholder="Drive, OneDrive ou vídeo">
+                </div>
+                <div class="c3">
+                  <label>Segundo link</label>
+                  <input name="evidenciaLink2">
+                </div>
+                <div class="c3">
+                  <label>Notificar solicitante</label>
+                  <select name="notificarSolicitante">
+                    <option value="Sim" selected>Sim</option>
+                    <option value="Não">Não</option>
+                  </select>
+                </div>
+
+                <div class="c12">
+                  <div class="upload-box">
+                    <input id="responsibleFiles" type="file" accept="image/png,image/jpeg,image/webp,application/pdf" multiple>
+                    <b>Anexar prints, fotos ou PDF da solução</b>
+                    <span>Até 3 arquivos, 4 MB por arquivo e 8 MB no total.</span>
+                  </div>
+                  <div class="file-list" id="responsibleFileList"></div>
+                </div>
+
+                <div class="c12">
+                  <div class="internal-note">
+                    A resposta pública, o passo a passo e os links serão enviados ao solicitante.
+                    A observação interna ficará apenas na planilha e no histórico da equipe.
+                  </div>
+                </div>
+              </div>
+
+              <div class="responsible-actions">
+                <button class="button" id="responsibleRefreshBtn" type="button">Atualizar dados</button>
+                <button class="button button-primary" id="responsibleSubmitBtn" type="submit">Registrar resposta</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="responsible-pane" data-responsible-pane="timeline">
+            <div class="timeline" id="responsibleTimeline"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <section class="shell section" id="consultar">
     <div class="section-heading">
       <div>
@@ -685,6 +998,7 @@ textarea{min-height:112px;resize:vertical}
     </div>
     <div class="footer-links">
       <a href="#abrir">Novo chamado</a>
+      <a href="#responsavel">Área do responsável</a>
       <a href="#consultar">Consultar</a>
       <a href="#painel">Indicadores</a>
     </div>
@@ -694,11 +1008,12 @@ textarea{min-height:112px;resize:vertical}
 <div class="toast" id="toast"><b id="toastTitle"></b><span id="toastMessage"></span></div>
 
 <script>
-const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyJxlLpA3QDdJxu6UOARJACl0Ziv0hR0mQG7JE1FNuR5XfqGTsh45_S2obNqSNjwp6a/exec";
+const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx0SxpPZmsuAU_LIT4d4wKYJNLSbhbn7w_nTObIYrb0Ko6YSWyzEraqrJQLY-uAv-Pi/exec";
 
 const DRAFT_KEY = "mngt_helpdesk_draft_v1";
 const HISTORY_KEY = "mngt_helpdesk_history_v1";
 const PENDING_KEY = "mngt_helpdesk_pending_v1";
+const RESPONSIBLE_DRAFT_KEY = "mngt_helpdesk_responsible_draft_v1";
 
 const FIELD_LABELS = {
   solicitante:"Solicitante",emailSolicitante:"E-mail",empresa:"Empresa",departamento:"Departamento",
@@ -749,6 +1064,28 @@ const toastTitle = document.getElementById("toastTitle");
 const toastMessage = document.getElementById("toastMessage");
 const consultBtn = document.getElementById("consultBtn");
 const consultResult = document.getElementById("consultResult");
+
+const responsibleProtocol = document.getElementById("responsibleProtocol");
+const responsibleEmail = document.getElementById("responsibleEmail");
+const responsibleKey = document.getElementById("responsibleKey");
+const responsibleLoadBtn = document.getElementById("responsibleLoadBtn");
+const responsibleEmpty = document.getElementById("responsibleEmpty");
+const responsibleContent = document.getElementById("responsibleContent");
+const responsibleTicketTitle = document.getElementById("responsibleTicketTitle");
+const responsibleTicketSubtitle = document.getElementById("responsibleTicketSubtitle");
+const responsibleTicketStatus = document.getElementById("responsibleTicketStatus");
+const responsibleSummary = document.getElementById("responsibleSummary");
+const responsibleDescription = document.getElementById("responsibleDescription");
+const responsibleForm = document.getElementById("responsibleForm");
+const responsibleFiles = document.getElementById("responsibleFiles");
+const responsibleFileList = document.getElementById("responsibleFileList");
+const responsibleRefreshBtn = document.getElementById("responsibleRefreshBtn");
+const responsibleSubmitBtn = document.getElementById("responsibleSubmitBtn");
+const responsibleTimeline = document.getElementById("responsibleTimeline");
+
+let loadedResponsibleTicket = null;
+let responsibleSending = false;
+
 
 let currentStep = 1;
 let sending = false;
@@ -1122,7 +1459,8 @@ consultBtn.addEventListener("click",async()=>{
           <div class="ticket-info"><b>Prazo SLA</b><span>${escapeHtml(data.slaDeadline||"Não informado")}</span></div>
           <div class="ticket-info"><b>Última atualização</b><span>${escapeHtml(data.updatedAt||"Não informado")}</span></div>
         </div>
-        ${data.solution?`<div style="margin-top:14px;padding:14px;border:1px solid var(--line);border-radius:13px"><b style="font-size:10px">Solução / Retorno</b><p style="margin-top:7px;color:var(--muted);font-size:10px;line-height:1.55">${escapeHtml(data.solution)}</p></div>`:""}
+        ${data.solution?`<div class="resolution-box"><h5>Solução / Retorno</h5><p>${escapeHtml(data.solution)}</p></div>`:""}
+        ${renderPublicTimeline(data.interactions||[])}
       </div>`;
   }catch(error){
     showToast("Falha na consulta",error?.message||"Não foi possível consultar.");
@@ -1131,6 +1469,280 @@ consultBtn.addEventListener("click",async()=>{
     consultBtn.textContent="Consultar";
   }
 });
+
+
+function formatBytes(bytes){
+  if(!Number.isFinite(bytes)||bytes<=0)return"0 KB";
+  if(bytes<1024*1024)return`${Math.round(bytes/1024)} KB`;
+  return`${(bytes/(1024*1024)).toFixed(1)} MB`;
+}
+
+function renderSelectedFiles(){
+  const files=[...responsibleFiles.files];
+  responsibleFileList.innerHTML=files.map(file=>`
+    <div class="file-item">
+      <span>${escapeHtml(file.name)}</span>
+      <span>${escapeHtml(formatBytes(file.size))}</span>
+    </div>`).join("");
+}
+
+responsibleFiles.addEventListener("change",()=>{
+  const files=[...responsibleFiles.files];
+  if(files.length>3){
+    responsibleFiles.value="";
+    responsibleFileList.innerHTML="";
+    showToast("Limite de arquivos","Selecione no máximo 3 arquivos.");
+    return;
+  }
+  const total=files.reduce((sum,file)=>sum+file.size,0);
+  const invalid=files.find(file=>file.size>4*1024*1024);
+  if(invalid||total>8*1024*1024){
+    responsibleFiles.value="";
+    responsibleFileList.innerHTML="";
+    showToast("Arquivos muito grandes","Máximo de 4 MB por arquivo e 8 MB no total.");
+    return;
+  }
+  renderSelectedFiles();
+});
+
+function fileToBase64(file){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=()=>{
+      const result=String(reader.result||"");
+      resolve({
+        name:file.name,
+        mimeType:file.type||"application/octet-stream",
+        size:file.size,
+        data:result.includes(",")?result.split(",")[1]:result
+      });
+    };
+    reader.onerror=()=>reject(new Error(`Não foi possível ler ${file.name}.`));
+    reader.readAsDataURL(file);
+  });
+}
+
+async function responsibleFilesPayload(){
+  return Promise.all([...responsibleFiles.files].map(fileToBase64));
+}
+
+function responsibleCredentials(){
+  return{
+    protocol:responsibleProtocol.value.trim(),
+    email:responsibleEmail.value.trim().toLowerCase(),
+    accessKey:responsibleKey.value
+  };
+}
+
+function validateResponsibleCredentials(){
+  const credentials=responsibleCredentials();
+  if(!credentials.protocol||!credentials.email||!credentials.accessKey){
+    showToast("Acesso incompleto","Informe protocolo, e-mail e chave da equipe.");
+    return null;
+  }
+  return credentials;
+}
+
+function renderResponsibleSummary(ticket){
+  const items=[
+    ["Solicitante",ticket.requester],
+    ["Empresa",ticket.company],
+    ["Sistema",ticket.system],
+    ["Prioridade",ticket.priority],
+    ["Tipo",ticket.type],
+    ["Categoria",ticket.category],
+    ["Departamento",ticket.department],
+    ["Prazo SLA",ticket.slaDeadline]
+  ];
+  responsibleSummary.innerHTML=items.map(item=>`
+    <div class="responsible-summary-item">
+      <b>${escapeHtml(item[0])}</b>
+      <span>${escapeHtml(item[1]||"Não informado")}</span>
+    </div>`).join("");
+}
+
+function renderLinks(links){
+  const valid=(links||[]).filter(Boolean);
+  if(!valid.length)return"";
+  return`<div class="timeline-links">${valid.map((link,index)=>`
+    <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">
+      Evidência ${index+1} ↗
+    </a>`).join("")}</div>`;
+}
+
+function timelineHtml(interactions,includeInternal=false){
+  if(!interactions?.length){
+    return'<div class="ticket-card"><p style="color:var(--muted)">Nenhuma interação registrada.</p></div>';
+  }
+  return interactions.map(item=>`
+    <article class="timeline-item">
+      <span class="timeline-dot"></span>
+      <div class="timeline-card">
+        <div class="timeline-head">
+          <strong>${escapeHtml(item.type||"Atualização")}</strong>
+          <span>${escapeHtml(item.date||"")}</span>
+        </div>
+        <div class="timeline-meta">
+          ${escapeHtml(item.responder||"Equipe responsável")} •
+          ${escapeHtml(item.previousStatus||"")} → ${escapeHtml(item.newStatus||"")}
+        </div>
+        ${item.response?`<div class="timeline-content">${escapeHtml(item.response)}</div>`:""}
+        ${item.steps?`<div class="timeline-block"><b>Passo a passo</b><p>${escapeHtml(item.steps)}</p></div>`:""}
+        ${item.cause?`<div class="timeline-block"><b>Causa identificada</b><p>${escapeHtml(item.cause)}</p></div>`:""}
+        ${item.actions?`<div class="timeline-block"><b>Ações realizadas</b><p>${escapeHtml(item.actions)}</p></div>`:""}
+        ${item.preventive?`<div class="timeline-block"><b>Recomendação preventiva</b><p>${escapeHtml(item.preventive)}</p></div>`:""}
+        ${includeInternal&&item.internalNote?`<div class="timeline-block"><b>Observação interna</b><p>${escapeHtml(item.internalNote)}</p></div>`:""}
+        ${renderLinks(item.links)}
+      </div>
+    </article>`).join("");
+}
+
+function renderPublicTimeline(interactions){
+  if(!interactions?.length)return"";
+  return`
+    <div style="margin-top:18px">
+      <h4 style="font-size:13px;margin-bottom:13px">Histórico do atendimento</h4>
+      <div class="timeline">${timelineHtml(interactions,false)}</div>
+    </div>`;
+}
+
+function renderResponsibleTicket(data){
+  loadedResponsibleTicket=data;
+  responsibleEmpty.style.display="none";
+  responsibleContent.classList.add("show");
+  responsibleTicketTitle.textContent=data.subject||data.protocol;
+  responsibleTicketSubtitle.textContent=`${data.protocol} • ${data.system} • ${data.requester}`;
+  responsibleTicketStatus.textContent=data.status||"Aberto";
+  responsibleDescription.textContent=data.description||"Não informado";
+  renderResponsibleSummary(data);
+  responsibleTimeline.innerHTML=timelineHtml(data.interactions||[],true);
+
+  const responderName=responsibleForm.elements.responderNome;
+  if(!responderName.value){
+    responderName.value=localStorage.getItem("mngt_helpdesk_responder_name")||"";
+  }
+}
+
+async function loadResponsibleTicket(){
+  const credentials=validateResponsibleCredentials();
+  if(!credentials||!backendConfigured())return;
+
+  responsibleLoadBtn.disabled=true;
+  responsibleLoadBtn.textContent="Validando acesso...";
+
+  try{
+    const data=await jsonp({
+      action:"responsible_ticket",
+      protocolo:credentials.protocol,
+      responder_email:credentials.email,
+      access_key:credentials.accessKey
+    },15000);
+
+    if(!data?.ok||!data?.found){
+      throw new Error(data?.error||"Chamado não localizado ou acesso não autorizado.");
+    }
+
+    renderResponsibleTicket(data);
+    showToast("Acesso liberado",`Chamado ${data.protocol} carregado.`);
+  }catch(error){
+    responsibleContent.classList.remove("show");
+    responsibleEmpty.style.display="grid";
+    showToast("Acesso não autorizado",error?.message||"Não foi possível carregar o chamado.");
+  }finally{
+    responsibleLoadBtn.disabled=false;
+    responsibleLoadBtn.textContent="Acessar chamado";
+  }
+}
+
+responsibleLoadBtn.addEventListener("click",loadResponsibleTicket);
+responsibleRefreshBtn.addEventListener("click",loadResponsibleTicket);
+
+document.querySelectorAll("[data-responsible-tab]").forEach(button=>{
+  button.addEventListener("click",()=>{
+    const tab=button.dataset.responsibleTab;
+    document.querySelectorAll("[data-responsible-tab]").forEach(item=>item.classList.toggle("active",item===button));
+    document.querySelectorAll("[data-responsible-pane]").forEach(pane=>pane.classList.toggle("active",pane.dataset.responsiblePane===tab));
+  });
+});
+
+responsibleForm.addEventListener("input",()=>{
+  const draft=Object.fromEntries(new FormData(responsibleForm).entries());
+  localStorage.setItem(RESPONSIBLE_DRAFT_KEY,JSON.stringify(draft));
+});
+
+function restoreResponsibleDraft(){
+  try{
+    const draft=JSON.parse(localStorage.getItem(RESPONSIBLE_DRAFT_KEY)||"null");
+    if(!draft)return;
+    Object.entries(draft).forEach(([field,value])=>{
+      if(responsibleForm.elements[field])responsibleForm.elements[field].value=value;
+    });
+  }catch(error){}
+}
+
+responsibleForm.addEventListener("submit",async event=>{
+  event.preventDefault();
+  if(responsibleSending||!loadedResponsibleTicket)return;
+  if(!responsibleForm.reportValidity())return;
+
+  const credentials=validateResponsibleCredentials();
+  if(!credentials||!backendConfigured())return;
+
+  responsibleSending=true;
+  responsibleSubmitBtn.disabled=true;
+  responsibleSubmitBtn.textContent="Registrando resposta...";
+
+  try{
+    const data=Object.fromEntries(new FormData(responsibleForm).entries());
+    const files=await responsibleFilesPayload();
+    const payload={
+      action:"responsible_update",
+      request_id:generateRequestId(),
+      protocolo:loadedResponsibleTicket.protocol,
+      responderEmail:credentials.email,
+      accessKey:credentials.accessKey,
+      ...data,
+      files,
+      dataCliente:new Date().toISOString()
+    };
+
+    await sendPayload(payload);
+
+    let confirmation=null;
+    try{
+      confirmation=await jsonp({
+        action:"interaction_status",
+        request_id:payload.request_id,
+        responder_email:credentials.email,
+        access_key:credentials.accessKey
+      },15000);
+    }catch(error){
+      console.warn("Confirmação da interação indisponível.",error);
+    }
+
+    localStorage.setItem("mngt_helpdesk_responder_name",data.responderNome||"");
+    localStorage.removeItem(RESPONSIBLE_DRAFT_KEY);
+    responsibleForm.reset();
+    responsibleFileList.innerHTML="";
+    await new Promise(resolve=>setTimeout(resolve,900));
+    await loadResponsibleTicket();
+
+    showToast(
+      confirmation?.found?"Resposta registrada":"Resposta encaminhada",
+      confirmation?.found
+        ? "O histórico foi atualizado e o solicitante foi notificado conforme a opção escolhida."
+        : "A atualização foi encaminhada para a Central."
+    );
+  }catch(error){
+    showToast("Falha ao registrar",error?.message||"Não foi possível salvar a resposta.");
+  }finally{
+    responsibleSending=false;
+    responsibleSubmitBtn.disabled=false;
+    responsibleSubmitBtn.textContent="Registrar resposta";
+  }
+});
+
+restoreResponsibleDraft();
 
 restoreDraft();
 calculatePriority();
