@@ -770,7 +770,7 @@ textarea{min-height:112px;resize:vertical}
     <div class="section-heading">
       <div>
         <span class="section-kicker">Atendimento técnico</span>
-        <h2>Área do responsável pelo chamado</h2>
+        <h2>Área do responsável pelo chamado • V2.1</h2>
       </div>
       <p>
         Ambiente interno para assumir o atendimento, registrar análise, orientar o usuário,
@@ -804,7 +804,7 @@ textarea{min-height:112px;resize:vertical}
         </button>
 
         <div class="responsible-security">
-          A autenticação é validada no servidor. Mantenha a chave apenas com os responsáveis autorizados.
+          A autenticação é validada no servidor. A chave aceita espaços removidos automaticamente e os e-mails são comparados sem diferença entre maiúsculas e minúsculas.
         </div>
       </aside>
 
@@ -1008,7 +1008,7 @@ textarea{min-height:112px;resize:vertical}
 <div class="toast" id="toast"><b id="toastTitle"></b><span id="toastMessage"></span></div>
 
 <script>
-const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx0SxpPZmsuAU_LIT4d4wKYJNLSbhbn7w_nTObIYrb0Ko6YSWyzEraqrJQLY-uAv-Pi/exec";
+const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxOP7fmXu4GhEur0HNnnR3SrhIc34hPHzk0UXCuZZYH1qfe5bWwSAVep3YXslzN_x46/exec";
 
 const DRAFT_KEY = "mngt_helpdesk_draft_v1";
 const HISTORY_KEY = "mngt_helpdesk_history_v1";
@@ -1530,7 +1530,7 @@ function responsibleCredentials(){
   return{
     protocol:responsibleProtocol.value.trim(),
     email:responsibleEmail.value.trim().toLowerCase(),
-    accessKey:responsibleKey.value
+    accessKey:responsibleKey.value.trim()
   };
 }
 
@@ -1647,7 +1647,15 @@ async function loadResponsibleTicket(){
   }catch(error){
     responsibleContent.classList.remove("show");
     responsibleEmpty.style.display="grid";
-    showToast("Acesso não autorizado",error?.message||"Não foi possível carregar o chamado.");
+
+    const message=error?.message||"Não foi possível carregar o chamado.";
+    let title="Acesso não autorizado";
+
+    if(message.toLowerCase().includes("chave"))title="Verifique a chave";
+    if(message.toLowerCase().includes("e-mail")||message.toLowerCase().includes("email"))title="E-mail não autorizado";
+    if(message.toLowerCase().includes("configurad"))title="Acesso ainda não configurado";
+
+    showToast(title,message);
   }finally{
     responsibleLoadBtn.disabled=false;
     responsibleLoadBtn.textContent="Acessar chamado";
